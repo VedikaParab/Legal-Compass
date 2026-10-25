@@ -1,0 +1,29 @@
+{
+  "name": "legalcompass-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predev": "node scripts/copy-ocr-assets.mjs",
+    "dev": "next dev -p 3000",
+    "prebuild": "node scripts/copy-ocr-assets.mjs",
+    "build": "next build",
+    "start": "next start -p 3000"
+  },
+  "dependencies": {
+    "next": "^15.5.4",
+    "pdfjs-dist": "^4.10.38",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "@tesseract.js-data/hin": "^1.0.0",
+    "@tesseract.js-data/mar": "^1.0.0",
+    "@types/node": "^22.18.6",
+    "@types/react": "^19.1.12",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2"
+  }
+}

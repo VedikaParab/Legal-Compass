@@ -1,0 +1,20 @@
+# Render Blueprint: New > Blueprint > pick this repository.
+services:
+  - type: web
+    name: legalcompass-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: LEGALCOMPASS_API_KEY
+        generateValue: true
+      - key: CORS_ORIGIN_REGEX
+        value: https://.*\.vercel\.app
+      - key: CORS_ORIGINS
+        value: http://localhost:3000
+      - key: SERVER_OCR
+        value: "0"
+      # optional: paste your xAI Grok ("xai-...") or Groq ("gsk_...") key in the Render dashboard
+      - key: LLM_API_KEY
+        sync: false

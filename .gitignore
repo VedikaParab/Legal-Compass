@@ -1,0 +1,34 @@
+# Environment & secrets
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+
+# Node / Next.js
+web/node_modules/
+web/.next/
+web/out/
+*.tsbuildinfo
+# copied from node_modules at build time
+web/public/ocr/
+
+# IL-TUR data artifacts (redistribution prohibited by dataset license)
+backend/data/*.joblib
+backend/data/*.parquet
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

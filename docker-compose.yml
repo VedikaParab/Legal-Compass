@@ -1,0 +1,33 @@
+# Three services. The research repository is used UNCHANGED as the "legalcompass-api" service.
+# Set LEGALCOMPASS_REPO in .env to the path of your sanhita-bridge checkout.
+services:
+  legalcompass-api:
+    build:
+      context: ./mapping_api
+      dockerfile: Dockerfile
+    environment:
+      SB_API_KEYS: ${LEGALCOMPASS_API_KEY:-dev-local-key}
+      SB_RATE_KEY: "5000"
+    ports: ["8000:8000"]
+
+  backend:
+    build: ./backend
+    environment:
+      LEGALCOMPASS_API: http://legalcompass-api:8000
+      LEGALCOMPASS_API_KEY: ${LEGALCOMPASS_API_KEY:-dev-local-key}
+      LLM_BASE_URL: ${LLM_BASE_URL:-}
+      LLM_MODEL: ${LLM_MODEL:-}
+      LLM_API_KEY: ${LLM_API_KEY:-EMPTY}
+      CORS_ORIGINS: http://localhost:3000
+    volumes:
+      - ./backend/data:/srv/data:ro      # ipc_classifier.joblib / case_index.joblib (optional, local only)
+    ports: ["8100:8100"]
+    depends_on: [legalcompass-api]
+
+  web:
+    build:
+      context: ./web
+    environment:
+      BACKEND_URL: http://backend:8100
+    ports: ["3000:3000"]
+    depends_on: [backend]

@@ -1,0 +1,6 @@
+# only for scripts/train_classifier.py and scripts/build_case_index.py (run on your machine)
+-r requirements.txt
+pandas>=2.1
+pyarrow>=15
+datasets>=2.18
+pyyaml>=6

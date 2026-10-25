@@ -1,0 +1,11 @@
+web/
+**/__pycache__/
+**/.pytest_cache/
+backend/tests/
+backend/data/
+docs/
+.git/
+
+# secrets
+.env
+**/.env
