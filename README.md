@@ -6,6 +6,8 @@ A user describes an incident in plain words; the app asks follow-up questions, d
 
 > **Disclaimer:** General legal information, not legal advice. Displayed prominently across every screen.
 
+> 💡 **Setting this up on your machine or collaborating?** See the step-by-step **[Collaborator & Setup Guide](COLLABORATOR_SETUP_GUIDE.md)** for a beginner-friendly walkthrough with copy-paste commands and troubleshooting.
+
 ---
 
 ## Architecture Overview
